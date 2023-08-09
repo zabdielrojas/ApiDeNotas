@@ -7,7 +7,7 @@ let pool;
 const getDb = async () => {
   try {
     if (!pool) {
-      const dbConnection = await mysql.createConnection({
+        pool = mysql.createPool({
         connectionLimit: 10,
         host: MYSQL_HOST,
         user: MYSQL_USER,
@@ -17,7 +17,7 @@ const getDb = async () => {
       });
 
     }
-    
+
     // Retornamos una conexión libre.
     return await pool.getConnection();
   } catch (err) {
