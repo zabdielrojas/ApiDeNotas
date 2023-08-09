@@ -83,6 +83,7 @@ Accede desde cualquier dispositivo, en cualquier momento.
 - eslint: ^8.45.0
 - nodemon: ^3.0.1
 - prettier: ^1.1.0
+- morgan: ^1.10.0
 
 #### Dependencies
 
@@ -91,7 +92,6 @@ Accede desde cualquier dispositivo, en cualquier momento.
 - express: ^4.18.2
 - express-fileupload: ^1.4.0
 - jsonwebtoken: ^9.0.1
-- morgan: ^1.10.0
 - mysql2: ^3.5.2
 
 
