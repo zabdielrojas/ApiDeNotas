@@ -42,6 +42,14 @@ app.get("/users", isUser, getOwnUser);
 app.put("/users", isUser, editUser);
 
 /**
+ * ############################
+ * ## Controladores usuarios ##
+ * ############################
+ */
+
+const { newNote } = require("./controllers/notes/index");
+app.post("/notes", isUser, newNote);
+/**
  * ####################################
  * ## Middleware de error/ not found ##
  * ####################################
