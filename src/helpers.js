@@ -11,3 +11,6 @@ const generateError = (msg, status) => {
     error.statusCode = status;
     return error;
   };
+
+
+  module.exports = {generateError}
