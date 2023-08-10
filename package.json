@@ -4,7 +4,8 @@
   "description": "Esta presentación introduce nuestra innovadora \"App de Notas de Texto\", una herramienta poderosa y versátil diseñada para ayudarte a administrar tus pensamientos y tareas de manera eficiente, permitiéndote organizar, compartir y crear contenido de manera personalizada.",
   "main": "index.js",
   "scripts": {
-    "initDb":"node ./src/database/initDb.js"
+    "initDb": "node ./src/database/initDb.js",
+    "dev": "nodemon ./src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "prettier": "^3.0.1"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",

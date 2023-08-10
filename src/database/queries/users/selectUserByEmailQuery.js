@@ -7,19 +7,19 @@ const selectUserByEmailQuery = async (email)=>{
  let connection;
 try {
     // Abrimos una pool de conexiones con la base de datos.
-    connection =  getDb
+    connection = await getDb
 
     //Seleccionamos al usuario con el email de la petición.
     const [users] = await connection.query(`SELECT * FROM users WHERE email = ?`,[email]);
 
  //Lanzamos un error si el email es incorrecto
  if (users.length < 1) {
-    throw generateError("Usuario no encontrado", 404);
+    return("Usuario no encontrado", 404);
   }
   //Devolvemos la información del usuario.
-  return users[0]
+  return users
 
-}finally{
+}catch(e){
     if(connection) connection.release();
 }
 

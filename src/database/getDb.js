@@ -26,4 +26,4 @@ const getDb = async () => {
 };
 
 // Exportamos la función.
-module.exports = getDb;
+module.exports = getDb();

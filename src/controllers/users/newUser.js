@@ -1,7 +1,6 @@
 
 const { generateError } = require('../../helpers');
 
-const selectUserByEmailQuery = require("../../database/queries/users/selectUserByEmailQuery")
 const insertUserQuery = require("../../database/queries/users/insertUserQuery")
 
 const bcrypt = require('bcrypt');
@@ -15,17 +14,6 @@ const newUser = async (req, res, next) => {
         // Si faltan campos lanzamos un error.
         if (!username || !email || !password) {
             throw generateError('¡Faltan datos obligatorios!', 400);
-        }
-
-       // Comprobamos si hay ya un usuario registrado con ese email.
-       const userMail = await selectUserByEmailQuery(email)
-
-        // Si así fuese lanzamos un error.
-        if (userMail.length > 0) {
-            throw generateError(
-                '¡Ya existe un usuario con ese email en la base de datos!',
-                409
-            );
         }
 
         // Encriptamos la contraseña antes de guardarla en la base de datos.

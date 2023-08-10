@@ -93,6 +93,7 @@ Accede desde cualquier dispositivo, en cualquier momento.
 - express-fileupload: ^1.4.0
 - jsonwebtoken: ^9.0.1
 - mysql2: ^3.5.2
+- bcrypt: ^5.1.0
 
 
 ### CORS 

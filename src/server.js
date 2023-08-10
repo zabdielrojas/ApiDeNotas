@@ -28,11 +28,11 @@ app.post("/users",newUser)
 
 /**
  * ####################################
- * ## Middelware de error/ not found ##
+ * ## Middleware de error/ not found ##
  * ####################################
  */
 
-//Middelware de error.
+//Middleware de error.
 app.use((err, req, res, next) => {
     console.error(err);
   
