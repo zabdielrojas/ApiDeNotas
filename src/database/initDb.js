@@ -1,7 +1,6 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const getDb=require("./getDb")
-
+const getDb = require("./getDb");
 
 async function main() {
   let connection;
@@ -9,11 +8,11 @@ async function main() {
   try {
     connection = await getDb;
 
-    console.log('Borrando tablas existentes');
-    await connection.query('DROP TABLE IF EXISTS notes');
-    await connection.query('DROP TABLE IF EXISTS users');
+    console.log("Borrando tablas existentes");
+    await connection.query("DROP TABLE IF EXISTS notes");
+    await connection.query("DROP TABLE IF EXISTS users");
 
-    console.log('Creando tablas');
+    console.log("Creando tablas");
 
     await connection.query(`
       CREATE TABLE users (
