@@ -1,4 +1,4 @@
-import newUser from "./newUser";
+newUser = require("./newUser");
 
 
 module.exports= {newUser}
