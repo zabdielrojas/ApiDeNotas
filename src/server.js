@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const fileUpload = require("express-fileupload");
 const isAuth = require("./middlewares/isAuth");
 const isUser = require("./middlewares/isUser");
 
@@ -15,6 +16,8 @@ app.use(morgan("dev"));
 
 app.use(express.json());
 
+app.use(fileUpload());
+
 app.use(isAuth);
 
 /**
@@ -23,13 +26,20 @@ app.use(isAuth);
  * ############################
  */
 
-const { newUser, loginUser, getOwnUser } = require("./controllers/users/index");
+const {
+  newUser,
+  loginUser,
+  getOwnUser,
+  editUser,
+} = require("./controllers/users/index");
 
 app.post("/users", newUser);
 
 app.post("/users/login", loginUser);
 
 app.get("/users", isUser, getOwnUser);
+
+app.put("/users", isUser, editUser);
 
 /**
  * ####################################
