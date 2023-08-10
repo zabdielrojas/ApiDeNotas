@@ -2,10 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const isAuth = require("./middlewares/isAuth");
+const isUser = require("./middlewares/isUser");
 
-const {PORT} = process.env
+const { PORT } = process.env;
 
-const app = express()
+const app = express();
 
 app.use(cors());
 
@@ -13,20 +15,21 @@ app.use(morgan("dev"));
 
 app.use(express.json());
 
+app.use(isAuth);
+
 /**
  * ############################
  * ## Controladores usuarios ##
  * ############################
  */
 
-const {newUser,loginUser} = require("./controllers/users/index")
+const { newUser, loginUser, getOwnUser } = require("./controllers/users/index");
 
+app.post("/users", newUser);
 
-app.post("/users",newUser)
+app.post("/users/login", loginUser);
 
-app.post("/users/login",loginUser)
-
-
+app.get("/users", isUser, getOwnUser);
 
 /**
  * ####################################
@@ -36,23 +39,22 @@ app.post("/users/login",loginUser)
 
 //Middleware de error.
 app.use((err, req, res, next) => {
-    console.error(err);
-  
-    res.status(err.statusCode || 500).send({
-      status: "error",
-      message: err.message,
-    });
-  });
-  
-  //Middelware de ruta no encontrada.
-app.use((req, res) => {
-    res.status(404).send({
-      status: "error",
-      message: "Ruta no encontrada",
-    });
-  });
+  console.error(err);
 
-  app.listen(PORT, () => {
-    console.log(`Server listening at PORT: ${PORT}`);
+  res.status(err.statusCode || 500).send({
+    status: "error",
+    message: err.message,
   });
-  
+});
+
+//Middelware de ruta no encontrada.
+app.use((req, res) => {
+  res.status(404).send({
+    status: "error",
+    message: "Ruta no encontrada",
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening at PORT: ${PORT}`);
+});
