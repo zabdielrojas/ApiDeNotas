@@ -1,7 +1,6 @@
 
 const getDb = require("../../getDb");
 const {generateError}= require("../../../helpers")
-const selectUserByEmailQuery = require("./selectUserByEmailQuery")
 
 
 const insertUserQuery = async (username,email,hashedPassword)=>{
@@ -12,7 +11,7 @@ try {
     connection =  await getDb
 
     // Comprobamos si hay ya un usuario registrado con ese email.
-    const userMail = await selectUserByEmailQuery(email)
+    const userMail = await connection.query(`SELECT * FROM users WHERE email=?`,[email])
 
     // Si así fuese lanzamos un error.
     if (userMail.length > 0) {

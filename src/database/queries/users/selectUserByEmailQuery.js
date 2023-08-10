@@ -19,7 +19,7 @@ try {
   //Devolvemos la información del usuario.
   return users
 
-}catch(e){
+}finally{
     if(connection) connection.release();
 }
 

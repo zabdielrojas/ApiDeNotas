@@ -21,6 +21,8 @@ const newUser = async (req, res, next) => {
         
         // Llamamos a la función que inserta el usuario.
         await insertUserQuery(username,email,hashedPassword)
+        
+
 
         res.send({
             status: 'Ok',
