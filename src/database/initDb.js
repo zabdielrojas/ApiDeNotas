@@ -7,7 +7,7 @@ async function main() {
   let connection;
 
   try {
-    connection = await getDb();
+    connection = await getDb;
 
     console.log('Borrando tablas existentes');
     await connection.query('DROP TABLE IF EXISTS notes');
