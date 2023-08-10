@@ -1,4 +1,4 @@
 newUser = require("./newUser");
+loginUser = require("./loginUser");
 
-
-module.exports= {newUser}
+module.exports= {newUser,loginUser}

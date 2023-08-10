@@ -17,7 +17,7 @@ try {
     return("Usuario no encontrado", 404);
   }
   //Devolvemos la información del usuario.
-  return users
+  return users[0]
 
 }finally{
     if(connection) connection.release();

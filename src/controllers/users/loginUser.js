@@ -14,7 +14,7 @@ const loginUser = async(req,res,next) => {
         }
 
         const user =await selectUserByEmailQuery(email)
-
+        console.log(user)
         const validPassword =await bcrypt.compare(password,user.password)
 
         if(!validPassword){

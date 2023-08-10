@@ -19,10 +19,12 @@ app.use(express.json());
  * ############################
  */
 
-const {newUser} = require("./controllers/users/index")
+const {newUser,loginUser} = require("./controllers/users/index")
 
 
 app.post("/users",newUser)
+
+app.post("/users/login",loginUser)
 
 
 
