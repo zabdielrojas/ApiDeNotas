@@ -1,4 +1,5 @@
-newUser = require("./newUser");
-loginUser = require("./loginUser");
+const getOwnUser = require("./getOwnUser");
+const newUser = require("./newUser");
+const loginUser = require("./loginUser");
 
-module.exports= {newUser,loginUser}
+module.exports = { newUser, loginUser, getOwnUser };
