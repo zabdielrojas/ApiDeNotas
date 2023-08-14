@@ -47,9 +47,11 @@ app.put("/users", isUser, editUser);
  * ############################
  */
 
-const { newNote, getAllNotes } = require("./controllers/notes/index");
+const { newNote, getAllNotes, getNote } = require("./controllers/notes/index");
 app.post("/notes", isUser, newNote);
-app.get("/notes", getAllNotes)
+app.get("/notes", getAllNotes);
+app.get("/notes/:id", getNote);
+
 /**
  * ####################################
  * ## Middleware de error/ not found ##
