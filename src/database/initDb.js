@@ -30,6 +30,7 @@ async function main() {
         user_id INTEGER NOT NULL,
         title VARCHAR(30) NOT NULL,
         text VARCHAR(1000) NOT NULL,
+        image VARCHAR(100),
         category ENUM("emergencia", "otras", 
         "importantes", "citas") DEFAULT "otras",
         is_public BOOLEAN NOT NULL DEFAULT 0,

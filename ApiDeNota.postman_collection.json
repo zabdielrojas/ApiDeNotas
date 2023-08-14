@@ -131,7 +131,171 @@
 		},
 		{
 			"name": "notes",
-			"item": []
+			"item": [
+				{
+					"name": "Crear notas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkyMDM0MjYxLCJleHAiOjE2OTQ2MjYyNjF9.lZQYMXcmrcrif2-KruzS2gngno7MOH-CdlXIi09l6KQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "pendiente",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "llevar a la niña al medico ",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "importantes",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/famil/OneDrive/Escritorio/R.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/notes",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "seleccionarNotaPorId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxNjgxMTM3LCJleHAiOjE2OTQyNzMxMzd9.N8_wQ8UeUN8hpNBqgF0cXov7AX9BOEjIsf0psP3KRAs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/notes/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"notes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "seleccionar Notas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/notes",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "toggleIsPublic",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxNjgxMTM3LCJleHAiOjE2OTQyNzMxMzd9.N8_wQ8UeUN8hpNBqgF0cXov7AX9BOEjIsf0psP3KRAs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/notes/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"notes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar nota",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxNjgxMTM3LCJleHAiOjE2OTQyNzMxMzd9.N8_wQ8UeUN8hpNBqgF0cXov7AX9BOEjIsf0psP3KRAs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "titulo editado",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "texto editado",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "otras",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/notes/1/edit",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"notes",
+								"1",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

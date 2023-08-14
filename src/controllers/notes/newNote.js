@@ -1,5 +1,5 @@
 const insertNoteQuery = require("../../database/queries/notes/insertNoteQuery");
-const { generateError } = require("../../helpers");
+const { generateError, saveImage } = require("../../helpers");
 
 const newNote = async (req, res, next) => {
   try {
@@ -10,10 +10,16 @@ const newNote = async (req, res, next) => {
     if (!title || !text || !category) {
       throw generateError("faltan campos", 400);
     }
+
+    let imageName;
+    if (req.files) imageName = await saveImage(req.files?.image);
+
+    console.log(imageName);
     //guardamos los datos en un objeto
-    const note = {
+    let note = {
       title: title,
       text: text,
+      image: imageName,
       category: category,
       user_id: req.user.id,
     };
@@ -27,6 +33,7 @@ const newNote = async (req, res, next) => {
         id: note_id,
         title: title,
         text: text,
+        image: note.image,
         category: category,
         created_at: new Date(),
       },
