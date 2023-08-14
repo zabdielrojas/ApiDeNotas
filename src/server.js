@@ -47,11 +47,16 @@ app.put("/users", isUser, editUser);
  * ############################
  */
 
-const { newNote, getAllNotes, getNote } = require("./controllers/notes/index");
+const {
+  newNote,
+  getAllNotes,
+  getNote,
+  toggleNoteIsPublic,
+} = require("./controllers/notes/index");
 app.post("/notes", isUser, newNote);
 app.get("/notes", getAllNotes);
 app.get("/notes/:id", getNote);
-
+app.put("/notes/:id", toggleNoteIsPublic);
 /**
  * ####################################
  * ## Middleware de error/ not found ##
