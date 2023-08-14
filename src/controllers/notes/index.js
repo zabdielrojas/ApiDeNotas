@@ -1,2 +1,3 @@
 const newNote = require("./newNote");
-module.exports = { newNote };
+const getAllNotes = require("./getAllNotes");
+module.exports = { newNote, getAllNotes};
