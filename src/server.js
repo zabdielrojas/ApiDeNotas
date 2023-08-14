@@ -55,10 +55,10 @@ const {
   editNote,
 } = require("./controllers/notes/index");
 app.post("/notes", isUser, newNote);
-app.get("/notes", getAllNotes);
-app.get("/notes/:id", getNote);
-app.put("/notes/:id", toggleNoteIsPublic);
-app.put("/notes/:id/edit", editNote);
+app.get("/notes", isUser, getAllNotes);
+app.get("/notes/:id", isUser, getNote);
+app.put("/notes/:id", isUser, toggleNoteIsPublic);
+app.put("/notes/:id/edit", isUser, editNote);
 /**
  * ####################################
  * ## Middleware de error/ not found ##
