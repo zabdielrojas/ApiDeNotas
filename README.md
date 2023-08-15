@@ -43,13 +43,17 @@ Interfaz fácil de usar, diseñada pensando en la comodidad del usuario.
 Accede desde cualquier dispositivo, en cualquier momento.
 ¡Únete a nuestra comunidad y experimenta la libertad de organizar tus ideas, compartir conocimientos y crear contenido de manera única con la App de Notas de Texto!
 
-## Instalar
+## Instrucciones
 
 1. Instalar las dependencias mediante el comando `npm install` o `npm i`.
 
 2. Guardar el archivo `.env.example` como `.env` y cubrir los datos necesarios.
 
-3. Ejecutar `npm run initDb` para crear las tablas necesarias en la base de datos.
+3. Crear la base de datos con el nombre escrito en el .env
+
+4. Ejecutar `npm run initDb` para crear las tablas necesarias en la base de datos.
+
+5. Ejecutar npm run dev
 
 
 ## Base de datos
