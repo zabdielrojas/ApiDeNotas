@@ -6,6 +6,7 @@ const updateUserQuery = async (updatedUser) => {
   //Declaramos la conexión para poder acceder en los bloques de try catch y finally.
   let connection;
   try {
+
     // Abrimos una pool de conexiones con la base de datos.
     connection = await getDb;
 
@@ -14,6 +15,7 @@ const updateUserQuery = async (updatedUser) => {
       `UPDATE users SET email=?, username=? WHERE id = ?`,
       [email, username, id]
     );
+    
   } finally {
     if (connection) connection.release();
   }

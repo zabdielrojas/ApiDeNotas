@@ -3,6 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
+
 const isAuth = require("./middlewares/isAuth");
 const isUser = require("./middlewares/isUser");
 
@@ -54,11 +55,15 @@ const {
   toggleNoteIsPublic,
   editNote,
 } = require("./controllers/notes/index");
+
+
 app.post("/notes", isUser, newNote);
 app.get("/notes", isUser, getAllNotes);
 app.get("/notes/:id", isUser, getNote);
 app.put("/notes/:id", isUser, toggleNoteIsPublic);
 app.put("/notes/:id/edit", isUser, editNote);
+
+
 /**
  * ####################################
  * ## Middleware de error/ not found ##
@@ -75,7 +80,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-//Middelware de ruta no encontrada.
+// Middelware de ruta no encontrada.
 app.use((req, res) => {
   res.status(404).send({
     status: "error",

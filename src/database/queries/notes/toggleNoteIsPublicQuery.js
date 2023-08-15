@@ -4,7 +4,9 @@ const toggleNoteIsPublicQuery = async (note) => {
   //Declaramos la conexión para poder acceder en los bloques de try catch y finally.
   let connection;
   try {
+
     const { is_public, id } = note;
+    
     // Abrimos una pool de conexiones con la base de datos.
     connection = await getDb;
 

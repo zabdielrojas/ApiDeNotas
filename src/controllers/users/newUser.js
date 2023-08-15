@@ -23,7 +23,7 @@ const newUser = async (req, res, next) => {
         await insertUserQuery(username,email,hashedPassword)
         
 
-
+        // Envíamos la respuesta al usuario.
         res.send({
             status: 'Ok',
             message:

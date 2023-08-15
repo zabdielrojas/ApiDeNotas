@@ -2,10 +2,12 @@ const mysql = require("mysql2/promise");
 
 const { MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE } = process.env;
 
+// Declaramos la variable pool fuera de la función para que tenga un alcance global.
 let pool;
 
 const getDb = async () => {
   try {
+    
     if (!pool) {
         pool = mysql.createPool({
         connectionLimit: 10,

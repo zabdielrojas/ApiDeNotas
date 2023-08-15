@@ -2,12 +2,13 @@ const selectAllNotesQuery = require("../../database/queries/notes/selectAllNotes
 
 const getAllNotes = async (req, res, next) => {
   try {
-    //obtenemos el id del token
-    let user_id = ""
-    if (req.user) user_id = req.user.id
+    // Obtenemos el id del token.
+    const user_id = req.user.id
 
+    //  Llamamos a la consulta de seleccionar notas.
     const notes = await selectAllNotesQuery(user_id)
     
+    // Envíamos la lista con las notas en la respuesta.
     res.send({ status: "ok", data: notes });
   } catch (error) {
     next(error);

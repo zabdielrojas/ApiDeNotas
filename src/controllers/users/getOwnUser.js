@@ -16,7 +16,9 @@ const getOwnUser = async (req, res, next) => {
       created_at: user.created_at,
     };
 
+    // Envíamos la respuesta con la información del usuario.
     res.send({ status: "ok", data: { user: userInfo } });
+
   } catch (error) {
     next(error);
   }

@@ -3,19 +3,21 @@ const { generateError, saveImage } = require("../../helpers");
 
 const newNote = async (req, res, next) => {
   try {
-    //obtenemos la informacion del body
+    // Obtenemos la informacion del body.
     const { title, text, category } = req.body;
 
-    //si faltan campos lanzamos un error
+    // Si faltan campos lanzamos un error.
     if (!title || !text || !category) {
       throw generateError("faltan campos", 400);
     }
 
+    // Declaramos una variable donde se guardará la imagen en caso de que haya.
     let imageName;
+
     if (req.files) imageName = await saveImage(req.files?.image);
 
-    console.log(imageName);
-    //guardamos los datos en un objeto
+
+    // Guardamos los datos en un objeto.
     let note = {
       title: title,
       text: text,
@@ -23,8 +25,10 @@ const newNote = async (req, res, next) => {
       category: category,
       user_id: req.user.id,
     };
-    // llamamos a la funcion de insertar nota y guardaamos en una variable la id que nos devuelve
+
+    // Llamamos a la funcion de insertar nota y guardamos en una variable la id que nos devuelve
     const note_id = await insertNoteQuery(note);
+    
     res.send({
       status: "ok",
       message: "Nota creada",

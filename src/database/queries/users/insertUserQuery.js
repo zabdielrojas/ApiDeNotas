@@ -12,7 +12,7 @@ try {
 
     // Comprobamos si hay ya un usuario registrado con ese email.
     const [userMail] = await connection.query(`SELECT * FROM users WHERE email=?`,[email])
-
+    
     // Si así fuese lanzamos un error.
     if (userMail.length > 0) {
         throw generateError(
@@ -20,10 +20,9 @@ try {
             409
         );
     }
-
     // Insertamos el usuario en la base de datos.
     await connection.query(
-        `INSERT INTO users (username, email, password,created_at) VALUES (?, ?, ?,?)`,
+        `INSERT INTO users (username, email, password, created_at) VALUES (?, ?, ?, ?)`,
         [
             username,
             email,
