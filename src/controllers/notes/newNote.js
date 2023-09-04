@@ -1,6 +1,6 @@
 const insertNoteQuery = require("../../database/queries/notes/insertNoteQuery");
 const { generateError, saveImage } = require("../../helpers");
-
+const {v4:uuid} = require("uuid")
 const newNote = async (req, res, next) => {
   try {
     // Obtenemos la informacion del body.
@@ -24,13 +24,14 @@ const newNote = async (req, res, next) => {
       image: imageName,
       category: category,
       user_id: req.user.id,
+      uuid: uuid()
     };
 
     // Llamamos a la funcion de insertar nota y guardamos en una variable la id que nos devuelve
     const note_id = await insertNoteQuery(note);
     
-    res.send({
-      status: "ok",
+    res.status(201).send({
+      status: "Created",
       message: "Nota creada",
       data: {
         user_id: req.user.id,
@@ -39,6 +40,7 @@ const newNote = async (req, res, next) => {
         text: text,
         image: note.image,
         category: category,
+        uuid: note.uuid,
         created_at: new Date(),
       },
     });

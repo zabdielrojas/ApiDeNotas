@@ -1,13 +1,13 @@
-const selectNoteByIdQuery = require("../../database/queries/notes/selectNoteByIdQuery");
+const selectNoteByUuidQuery = require("../../database/queries/notes/selectNoteByUuidQuery.js");
 const {generateError} = require("../../helpers.js")
 
-const getNote = async (req, res, next) => {
+const getPublicNote = async (req, res, next) => {
   try {
     // Obtenemos el id de la nota de los path params.
-    const { id } = req.params;
+    const { uuid } = req.params;
 
     // Llamamos a la consulta que devuelve la nota con ese id.
-    const note = await selectNoteByIdQuery(id);
+    const note = await selectNoteByUuidQuery(uuid);
 
     // Comprobamos si la nota es pública.
     if(note.is_public !== 1){
@@ -23,4 +23,4 @@ const getNote = async (req, res, next) => {
     next(error);
   }
 };
-module.exports = getNote;
+module.exports = getPublicNote;

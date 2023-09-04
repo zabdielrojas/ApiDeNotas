@@ -24,8 +24,8 @@ const newUser = async (req, res, next) => {
         
 
         // Envíamos la respuesta al usuario.
-        res.send({
-            status: 'Ok',
+        res.status(201).send({
+            status: 'Created',
             message:
                 '¡Usuario registrado con éxito!',
         });

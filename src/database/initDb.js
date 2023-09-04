@@ -43,6 +43,7 @@ async function main() {
         category ENUM("emergencia", "otras", 
         "importantes", "citas") DEFAULT "otras",
         is_public BOOLEAN NOT NULL DEFAULT 0,
+        uuid VARCHAR(100),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES users(id)
         );
