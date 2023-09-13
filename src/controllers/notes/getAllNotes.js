@@ -12,7 +12,7 @@ const getAllNotes = async (req, res, next) => {
     const notes = await selectAllNotesQuery(user_id, category)
     
     // Envíamos la lista con las notas en la respuesta.
-    res.send({ status: "ok", data: notes });
+    res.send({ status: "ok", data: { notes }});
   } catch (error) {
     next(error);
   }
